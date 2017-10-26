@@ -40,18 +40,22 @@ print "\nGAuth completed in ",time.time() - start," secs\n"
 
 
 #SmartSurveillancePictures Folder ID is FID
-fid='0B2GsqFJywF-5cjVEMjEza0tvUWM'
+#fid='0B2GsqFJywF-5cjVEMjEza0tvUWM'
 
+# ********************* PLACE YOUR GOOGLE DRIVE FOLDER ID in FID variable*******************
+# ***************** THAT FOLDER CONTAINS THE TEST PICTURE for DEEP SEARCH*****************
+fid='0B1dCjysAJ-_cLURxOWFKMnZzeDg'  
 
 #DELETE EXISTING FILEs
 start = time.time()
-file_list = drive.ListFile({'q': "'0B2GsqFJywF-5cjVEMjEza0tvUWM' in parents and trashed=false"}).GetList()
+file_list = drive.ListFile({'q': "'"+fid+"' in parents and trashed=false"}).GetList()
 for file1 in file_list:
 	file1.Delete()
 print "\nDeleted Old files in ",time.time() - start," secs\n"
 
 #GET FIRST IMAGE in PicturesToBeUploaded
-path = '/home/aki/Downloads/SmartSurveillanceProject/WorkingDirectory/PicturesToBeUploaded/'
+#path = '/home/aki/Downloads/SmartSurveillanceProject/WorkingDirectory/PicturesToBeUploaded/'
+path = 'PicturesToBeUploaded/'
 imageToUpload = os.listdir(path)[0];
 
 
